@@ -1,0 +1,23 @@
+let rec mig A N M =
+   N eq 1 -> M
+   | A N gr A 1 -> mig A (N-1) (M 1, M 2 aug A N)
+   | mig A (N-1) (M 1 aug A N, M 2)
+
+in
+let join A B = 
+   Null B -> A | rjoin A B 1
+   where rec rjoin A B N =
+     N gr Order B -> A
+     | rjoin (A aug B N) B (N+1)
+
+in 
+
+let rec qsort A = 
+    Null A -> nil
+    | Order A eq 1 -> A
+    | (let m = mig A (Order A) (nil,nil) in
+        join (qsort(m 1) aug (A 1)) (qsort(m 2))
+      )
+   
+in
+Print (qsort(5,2,8,4,1,9,3,8,2))

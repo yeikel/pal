@@ -1,0 +1,5 @@
+let min n = rmin n n 
+   where rec rmin m n = n eq 0 -> m 
+      | m > n -> rmin n | rmin m
+in Print (min 34 3 17 2 3 4 0)
+

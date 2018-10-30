@@ -1,0 +1,26 @@
+let int_elements T = rint T (Order T)
+    where rec rint T n = n eq 0 -> true
+        | not Isinteger (T n) -> false
+        | rint T (n-1)
+within
+   Innerproduct (T1, T2) =
+     not (Istuple T1 & Istuple T2)
+         -> 'Args not both tuples'
+         |   Order T1 ne Order T2
+             -> 'Args of unequal length'
+         |  not (int_elements T1 & int_elements T2)
+             -> 'Args contain non-integers'
+         |  Partial_sum (T1,T2,Order T1)
+              where rec Partial_sum(A,B,N)=
+                N eq 0 -> 0
+                |  A N * B N + Partial_sum(A,B,N-1)
+
+in 
+Print ( Innerproduct (nil,        nil         ),
+        Innerproduct ((1,2,3),    (1,2,3)     ),
+        Innerproduct ((1,2,3),    (4,5,6)     ),
+        Innerproduct ((1,'2',3),  (4,5,6)     ),
+        Innerproduct ((1,2),      (3,4,5)     ),
+        Innerproduct ( 1,         (2,3,4)     )
+      )
+

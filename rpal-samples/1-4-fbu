@@ -1,0 +1,5 @@
+let f n = fact n 1
+   where rec fact n c = c eq n+1 -> 1
+       | c * fact n (c+1)
+ 
+in Print (f 3, f 5, f 7)

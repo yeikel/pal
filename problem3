@@ -1,0 +1,13 @@
+let rec len s = s eq '' -> 0 
+			  | 1 + len (Stern s)
+					 in 
+					 	let remove s n =   not Isstring s  -> 'error'
+									  	|  not Isinteger n -> 'error'
+						                |  n > len s -> 'error' 
+						                |  rrem s (len s - n )
+				 						   where 
+				 						     	rec rrem s n R = n eq 0 -> 'end'
+								               					 | rrem (Stern s) (n - 1 ) (Conc (Stem s) R)
+					                                					 in
+									            			   				Print (remove 'ABC' 2)
+                               

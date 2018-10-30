@@ -1,0 +1,35 @@
+let D (T, I, E)=  (E,
+		  Print '\n', 
+		  Print E,
+                  Print(')='),
+                  Print(T,I),
+		  Print('Rec-F(')) 1
+                  
+in
+
+
+let Is_Element N T = Rec_Is_Element N T (Order T)
+    where rec Rec_Is_Element N T M =
+       M eq 0 -> false
+       | (T M) eq N -> true
+       | Rec_Is_Element N T (M-1)
+in
+let rec Rec_F T I =
+   D (T, I,
+   
+      (I eq 0 -> nil
+    | (let R = Rec_F T (I-1) in
+       (Is_Element (T I) R -> R
+       | (R aug (T I)))
+           ))
+    )
+in
+let F T = Rec_F T (Order T)
+in
+Print ( F (1,2,1,7,3,2,4,5,5,4) )
+
+
+
+
+
+

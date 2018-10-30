@@ -1,0 +1,9 @@
+let merge t1 t2 =    rmgerge t1 t2 1 1 nil
+       where rec rmgerge t1 t2 i1 i2 R =
+           (i1 > Order t1) & (i2 > Order t2) ->  R
+	 | (i1 > Order t1) -> rmgerge t1 t2 i1 (i2+1) (R aug (t2 i2))
+	 | (i2 > Order t2) -> rmgerge t1 t2 (i1+1) i2 (R aug (t1 i1))
+	 |  (t1 i1 > t2 i2) -> rmgerge t1 t2 i1 (i2+1) (R aug (t2 i2))
+	 |  rmgerge t1 t2 (i1+1) i2 (R aug (t1 i1))
+
+in Print( merge (1,3,7) (2,4,6) )

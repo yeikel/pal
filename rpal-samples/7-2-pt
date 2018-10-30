@@ -1,0 +1,22 @@
+let rec rprint t spaces = 
+
+   let rec tuple t n =
+      n eq 1 ->
+        Isinteger (t n) or Isstring (t n) ->
+          rprint (t n) spaces
+          | 'error'
+      | tuple t (n-1) @Conc rprint (t n) (spaces @Conc '...') 
+   in 
+
+   Isinteger t -> spaces @Conc (ItoS t) @Conc '\n'
+   | Isstring  t -> spaces @Conc t @Conc '\n'
+   | Istuple   t -> tuple t (Order t) 
+   | 'error'
+
+in
+let print t =  rprint t '' 
+
+in Print ( print ('+',('-',4,('+',5,6)), 3, ('*',7,8) )
+         )
+
+          

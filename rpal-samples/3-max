@@ -1,0 +1,5 @@
+let max n = rmax n n 
+   where rec rmax m n = n eq 0 -> m
+      | m < n -> rmax n | rmax m
+in Print (max 4 3 17 2 34 3 4 0)
+

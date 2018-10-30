@@ -1,0 +1,17 @@
+let merge a b = 
+				not Isstring a or not Isstring b -> 'error'
+			  |	rmerge a b '' where 						
+			  					  rec rmerge a b S = a eq '' -> Conc S b 
+			  									  	| b eq '' -> Conc S a 
+						  		   			      	| Stem a > Stem b 
+						  		   			      				-> rmerge a (Stern b) (Conc S (Stem b) ) 
+						  		   				  	| rmerge (Stern a) b (Conc S (Stem a)) 
+											  		   	in Print 
+											  		   	(
+												  		  merge 'acegh' 'bdfi' ,
+												  		  merge 'bbbb' 'az',
+														  merge 1 '1', 
+													      merge 1 1,
+														  merge 'b' '1',
+														  merge '01' '02'
+													    )

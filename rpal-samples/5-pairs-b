@@ -1,0 +1,14 @@
+let Pairs S1 S2 =
+        P S1 S2 nil 
+            where rec P S1 S2 R =
+              S1 eq '' & S2 eq '' -> R
+               | (S1 eq '' or S2 eq '') -> 'unequal length strings'
+               |  P (Stern S1) (Stern S2) (R aug (Stem S1 @Conc Stem S2))
+
+ in Print ( Pairs 'abc' 'def',
+            Pairs 'a' '',
+            Pairs '' ''
+ 
+ )
+
+
